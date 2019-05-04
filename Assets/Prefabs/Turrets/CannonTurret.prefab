@@ -75,8 +75,8 @@ NavMeshObstacle:
   m_Shape: 1
   m_Extents: {x: 2, y: 2, z: 2}
   m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 0
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
 --- !u!1 &8231567307824220597
@@ -161,6 +161,7 @@ MonoBehaviour:
   useLaser: 0
   lineRenderer: {fileID: 0}
   impactEffect: {fileID: 0}
+  damageOverTime: 0
   enemyTag: Enemy
   partToRotate: {fileID: 67940250255523316}
   turnSpeed: 10

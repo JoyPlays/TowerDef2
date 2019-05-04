@@ -20,6 +20,7 @@ public class MonsterController : MonoBehaviour
 	private float elapsed = 0.0f;
 
 	[Header("Unity Stuff")]
+	public Transform healthCanvas;
 	public Image healthBar;
 
 	// Start is called before the first frame update
@@ -74,5 +75,7 @@ public class MonsterController : MonoBehaviour
 		}
 		for (int i = 0; i < path.corners.Length - 1; i++)
 			Debug.DrawLine(path.corners[i], path.corners[i + 1], Color.red);
+
+		healthCanvas.rotation = Quaternion.Euler(90f, 0f, 0f);
 	}
 }
