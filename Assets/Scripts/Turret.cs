@@ -6,7 +6,7 @@ public class Turret : MonoBehaviour
 {
 
 	private Transform target;
-	private MonsterController targetEnemy;
+	private Enemy targetEnemy;
 
 	[Header("Turret Settings")]
 	public float range = 15f;
@@ -22,6 +22,11 @@ public class Turret : MonoBehaviour
 	public ParticleSystem impactEffect;
 	public Light impactLight;
 	public float damageOverTime;
+
+	[Header("Use Slow")]
+	public bool activeSlow;
+	public bool passiveSlow;
+	public float slowAmount = 0.5f;
 
 	[Header("Unity Setup Fields")]
 	public string enemyTag = "Enemy";
@@ -55,7 +60,7 @@ public class Turret : MonoBehaviour
 			if (nearestEnemy != null && shortestDistance <= range)
 			{
 				target = nearestEnemy.transform;
-				targetEnemy = nearestEnemy.GetComponent<MonsterController>();
+				targetEnemy = nearestEnemy.GetComponent<Enemy>();
 			}
 			else
 			{
@@ -103,7 +108,10 @@ public class Turret : MonoBehaviour
 
 	void Laser()
 	{
-
+		if (activeSlow)
+		{
+			targetEnemy.ActiveSlow(slowAmount);
+		}
 		targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
 
 		if (!lineRenderer.enabled)
@@ -134,6 +142,10 @@ public class Turret : MonoBehaviour
 
 	void Shoot()
 	{
+		if (passiveSlow)
+		{
+			targetEnemy.PassiveSlow(slowAmount);
+		}
 		GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 		Bullet bullet = bulletGO.GetComponent<Bullet>();
 

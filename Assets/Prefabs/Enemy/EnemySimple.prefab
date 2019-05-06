@@ -263,6 +263,7 @@ GameObject:
   - component: {fileID: 8233361544270863131}
   - component: {fileID: 1790673366652067616}
   - component: {fileID: 8233361544270863134}
+  - component: {fileID: 278468955}
   m_Layer: 0
   m_Name: EnemySimple
   m_TagString: Enemy
@@ -298,10 +299,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d33d6769acb99104b9bab8d7704f05fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 0}
-  levelSettings: {fileID: 0}
   startHealth: 100
   moneyValue: 10
+  enemySpeed: 10
   deathEffect: {fileID: 3330633268798229261, guid: 3d1de76551a1f254293a9d3e7ca68200,
     type: 3}
   healthCanvas: {fileID: 7613439937636737980}
@@ -357,6 +357,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &278468955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8233361544270863133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c4913283aefaff4a9c71571576cdfae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 0}
+  levelSettings: {fileID: 0}
 --- !u!1 &8233361544782542175
 GameObject:
   m_ObjectHideFlags: 0
